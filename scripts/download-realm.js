@@ -88,7 +88,7 @@ function download(serverFolder, archive, destination) {
     if (copyLocal(archive, destination)) {
         return Promise.resolve();
     }
-     
+
     const url = `https://static.realm.io/downloads/${serverFolder}/${archive}`;
     console.log(`Download url: ${url}`);
     const proxyUrl = process.env.HTTP_PROXY || process.env.http_proxy || process.env.HTTPS_PROXY || process.env.https_proxy;
@@ -259,7 +259,7 @@ const optionDefinitions = [
 ];
 
 const options = require('command-line-args')(optionDefinitions);
-if (options.platform === '..\\win') {
+if (options.platform === '..\\win' || options.platform === '../win') {
     options.platform = 'win'; // handle gyp idiocy
 }
 
